@@ -24,6 +24,14 @@ cargo test --locked --lib
 ./tools/build-account-apk.ps1
 ```
 
+On macOS or Linux, run the shell version of the script instead:
+
+```sh
+tools/build-account-apk.sh
+```
+
+It needs `python3` and reads the same environment variables. Set `GRADLE` to point at Gradle 8.14.3 if `gradle` on your `PATH` is a different version, and `ANDROID_BUILD_TOOLS` to use a Build Tools directory other than 36.0.0 (the newest installed 36.x is used if 36.0.0 is missing).
+
 Run the commands from `mobile/android`. The script builds the Rust libraries and Android bridge with RustFerry, packages Google Play services with the Android Gradle plugin, and signs `target/google-play/Stream-Tube-Android-0.1.0.apk` with the local RustFerry signing identity.
 
 ## Google authorization
